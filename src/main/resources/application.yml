@@ -1,0 +1,44 @@
+server:
+  port: 8082
+
+spring:
+
+  application:
+    name: Email
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ms-email
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  flyway:
+    enabled: false
+  
+  rabbitmq:
+    addresses:
+    - amqps://xvlkeyxz:hCtWYvd5PTLeyDlteP3TR45CxpJetvkG@gull.rmq.cloudamqp.com/xvlkeyxz
+
+  mail:
+    host: localhost
+    port: 8025
+    username: decode@gmail.com;
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          auth: false
+      
+
+broker:
+  queue:
+    email:
+      name: default.email
+
